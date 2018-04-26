@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML 标签关联模型JS</title>
+	<script type="text/javascript" src="./js/module.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		M.addModelFns({
+			test_model:{
+				click:function(){
+					var attrs = M.getModelArgs(this);
+					console.log(attrs);
+					console.log('test_model_click');
+				},
+				focus:function(){
+					console.log('test_model_focus');
+				}
+			}
+		});
+		M.addEventFns({
+			test_event:{
+				click:function(){
+					console.log('test_event_click');
+				},
+				load:function(){
+					var attrs = M.getEventArgs(this);
+					console.log('test_event_load');
+					console.log(attrs);
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+<p id="test_model"><div model-node="test_model" class="test_model" model-args='a=1&b=2'>test_model</div></p>
+<p id="test_event"><a href="javascript:;" event-node="test_event"  event-args='a=1&b=2'>test_event</a></p>
+</body>
+</html>
